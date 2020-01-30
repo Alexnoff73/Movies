@@ -672,8 +672,19 @@
       },
       "Search" : {
         "type" : "array",
-        "items" : {
-          "$ref" : "#/components/schemas/Movie"
+        "properties" : {
+          "movies" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Movie"
+            }
+          },
+          "Person" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Person"
+            }
+          }
         }
       }
     }
