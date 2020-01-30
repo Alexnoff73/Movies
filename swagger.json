@@ -493,6 +493,44 @@
           }
         }
       }
+    },
+    "/seach" : {
+      "get" : {
+        "operationId" : "getsearch",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "maximum" : 25
+          },
+          "description" : "The numbers of items to return"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer"
+          },
+          "description" : "The numbers to pass before starting counting"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Everything went well",
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Search"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Search"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -630,6 +668,23 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/Person"
+        }
+      },
+      "Search" : {
+        "type" : "array",
+        "properties" : {
+          "movies" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Movie"
+            }
+          },
+          "Person" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Person"
+            }
+          }
         }
       }
     }
