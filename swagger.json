@@ -50,7 +50,7 @@
         }
       }
     },
-    "/movies/{id}" : {
+    "/movies/{movieId}" : {
       "get" : {
         "operationId" : "getMovie",
         "parameters" : [ {
@@ -68,7 +68,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movie"
+                  "$ref" : "#/components/schemas/Movie/{movieID}"
                 }
               }
             }
@@ -85,7 +85,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Movies/{movieId}/Critics"
+                "$ref" : "#/components/schemas/Movies/Critics/{movieId}"
               }
             }
           }
@@ -116,7 +116,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movie/{movieId}/Critics"
+                  "$ref" : "#/components/schemas/Movie/Critics"
                 }
               }
             }
