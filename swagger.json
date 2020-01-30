@@ -85,7 +85,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Critics"
+                "$ref" : "#/components/schemas/Critic"
               }
             }
           }
@@ -116,7 +116,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Critics"
+                  "$ref" : "#/components/schemas/Critic"
                 }
               }
             }
