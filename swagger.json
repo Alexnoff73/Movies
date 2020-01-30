@@ -182,6 +182,9 @@
           "teaser" : {
             "type" : "array"
           },
+          "director" : {
+            "type" : "string"
+          },
           "actor" : {
             "type" : "array"
           },
