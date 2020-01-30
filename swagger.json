@@ -335,6 +335,84 @@
           }
         }
       }
+    },
+    "/actor" : {
+      "post" : {
+        "operationId" : "addActor",
+        "requestBody" : {
+          "description" : "Actor to be added",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Person"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Actor Created"
+          },
+          "422" : {
+            "description" : "Problems with your request"
+          }
+        }
+      },
+      "get" : {
+        "operationId" : "listActors",
+        "responses" : {
+          "200" : {
+            "description" : "Everything went well",
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Persons"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Persons"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actrors/{actorId}" : {
+      "get" : {
+        "operationId" : "getActor",
+        "parameters" : [ {
+          "name" : "actorId",
+          "in" : "path",
+          "required" : true,
+          "description" : "id of the actor",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ActorFilter",
+          "in" : "query",
+          "required" : false,
+          "description" : "Filters of the actor",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "the actor",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Persons"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
