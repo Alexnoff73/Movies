@@ -13,6 +13,11 @@
           "description" : "Movie to be added",
           "required" : true,
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Movies"
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Movies"
@@ -90,6 +95,11 @@
           "200" : {
             "description" : "the movie",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MovieFull"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/MovieFull"
@@ -116,6 +126,11 @@
           "description" : "Critic to be added",
           "required" : true,
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Critic"
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Critic"
@@ -154,6 +169,11 @@
           "200" : {
             "description" : "the critics",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Critic"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Critic"
@@ -219,6 +239,11 @@
           "description" : "Mark to be added",
           "required" : true,
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Mark"
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Mark"
@@ -257,6 +282,11 @@
           "200" : {
             "description" : "the marks",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Mark"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Mark"
@@ -313,6 +343,11 @@
           "description" : "Director to be added",
           "required" : true,
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Person"
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Person"
@@ -390,6 +425,11 @@
           "200" : {
             "description" : "the director",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PersonFull"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/PersonFull"
@@ -407,6 +447,11 @@
           "description" : "Actor to be added",
           "required" : true,
           "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Person"
+              }
+            },
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Person"
@@ -484,6 +529,11 @@
           "200" : {
             "description" : "the actor",
             "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PersonFull"
+                }
+              },
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/PersonFull"
@@ -511,7 +561,7 @@
           "schema" : {
             "type" : "integer"
           },
-          "description" : "The numbers to pass before starting counting"
+          "description" : "The numbers to pass before starting to count"
         } ],
         "responses" : {
           "200" : {
