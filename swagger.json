@@ -54,7 +54,7 @@
       "get" : {
         "operationId" : "getMovie",
         "parameters" : [ {
-          "name" : "id",
+          "name" : "movieId",
           "in" : "path",
           "required" : true,
           "description" : "id of the movie",
@@ -68,7 +68,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movie/{movieID}"
+                  "$ref" : "#/components/schemas/Movies"
                 }
               }
             }
@@ -77,6 +77,15 @@
       }
     },
     "/movies/{movieId}/critics" : {
+      "parameters" : [ {
+        "name" : "movieId",
+        "in" : "path",
+        "required" : true,
+        "description" : "movie's Id",
+        "schema" : {
+          "type" : "string"
+        }
+      } ],
       "post" : {
         "operationId" : "addCritic",
         "requestBody" : {
@@ -85,7 +94,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Movies/Critics/{movieId}"
+                "$ref" : "#/components/schemas/Critic"
               }
             }
           }
@@ -101,22 +110,13 @@
       },
       "get" : {
         "operationId" : "listCriticsFromMovie",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "description" : "movie's critics",
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
         "responses" : {
           "200" : {
             "description" : "the critics",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movie/Critics"
+                  "$ref" : "#/components/schemas/Critic"
                 }
               }
             }
@@ -133,12 +133,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movies"
+                  "$ref" : "#/components/schemas/Critics"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movies"
+                  "$ref" : "#/components/schemas/Critics"
                 }
               }
             }
@@ -178,18 +178,6 @@
           },
           "sign" : {
             "type" : "object"
-          },
-          "teaser" : {
-            "type" : "array"
-          },
-          "actor" : {
-            "type" : "array"
-          },
-          "critics" : {
-            "type" : "array"
-          },
-          "mark" : {
-            "type" : "array"
           }
         }
       },
@@ -197,6 +185,21 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/Movie"
+        }
+      },
+      "Critic" : {
+        "type" : "object",
+        "required" : [ "content" ],
+        "properties" : {
+          "content" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Critics" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Critic"
         }
       }
     }
