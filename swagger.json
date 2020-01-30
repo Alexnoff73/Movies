@@ -133,12 +133,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Critics/{criticId}"
+                  "$ref" : "#/components/schemas/Critics"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Critics/{criticId}"
+                  "$ref" : "#/components/schemas/Critics"
                 }
               }
             }
@@ -187,7 +187,7 @@
           "$ref" : "#/components/schemas/Movie"
         }
       },
-      "Critics" : {
+      "Critic" : {
         "type" : "object",
         "required" : [ "content" ],
         "properties" : {
@@ -195,6 +195,10 @@
             "type" : "string"
           }
         }
+      },
+      "Critics" : {
+        "type" : "array",
+        "items" : "#/components/schemas/Critic"
       }
     }
   },
