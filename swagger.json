@@ -405,6 +405,13 @@
             "maximum" : 25
           },
           "description" : "The numbers of items to return"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer"
+          },
+          "description" : "The numbers to pass before starting counting"
         } ],
         "responses" : {
           "200" : {
