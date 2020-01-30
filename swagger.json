@@ -54,7 +54,7 @@
       "get" : {
         "operationId" : "getMovie",
         "parameters" : [ {
-          "name" : "id",
+          "name" : "movieId",
           "in" : "path",
           "required" : true,
           "description" : "id of the movie",
@@ -77,6 +77,15 @@
       }
     },
     "/movies/{movieId}/critics" : {
+      "parameters" : [ {
+        "name" : "movieId",
+        "in" : "path",
+        "required" : true,
+        "description" : "movie's Id",
+        "schema" : {
+          "type" : "string"
+        }
+      } ],
       "post" : {
         "operationId" : "addCritic",
         "requestBody" : {
@@ -101,15 +110,6 @@
       },
       "get" : {
         "operationId" : "listCriticsFromMovie",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "description" : "movie's critics",
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
         "responses" : {
           "200" : {
             "description" : "the critics",
@@ -198,7 +198,9 @@
       },
       "Critics" : {
         "type" : "array",
-        "items" : "#/components/schemas/Critic"
+        "items" : {
+          "$ref" : "#/components/schemas/Critic"
+        }
       }
     }
   },
