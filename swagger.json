@@ -61,6 +61,14 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "MovieFilter",
+          "in" : "query",
+          "required" : false,
+          "description" : "Filters of the movie",
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -157,6 +165,93 @@
           "in" : "path",
           "required" : true,
           "description" : "id of the critic",
+          "schema" : {
+            "type" : "string"
+          }
+        } ]
+      },
+      "/movies/{movieId}/Mark" : {
+        "parameters" : [ {
+          "name" : "movieId",
+          "in" : "path",
+          "required" : true,
+          "description" : "movie's Id",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "post" : {
+          "operationId" : "addMark",
+          "requestBody" : {
+            "description" : "Mark to be added",
+            "required" : true,
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "responses" : {
+            "201" : {
+              "description" : "Mark Created"
+            },
+            "422" : {
+              "description" : "Problems with your request"
+            }
+          }
+        },
+        "get" : {
+          "operationId" : "listMarksFromMovie",
+          "responses" : {
+            "200" : {
+              "description" : "the marks"
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Mark"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/{movieId}/marks/{markId}" : {
+      "get" : {
+        "operationId" : "getMarksFromMovie",
+        "responses" : {
+          "200" : {
+            "description" : "Everything went well",
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Marks"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Marks"
+                }
+              }
+            }
+          }
+        },
+        "parameters" : [ {
+          "name" : "movieId",
+          "in" : "path",
+          "required" : true,
+          "description" : "id of the movie",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "markId",
+          "in" : "path",
+          "required" : true,
+          "description" : "id of the mark",
           "schema" : {
             "type" : "string"
           }
