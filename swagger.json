@@ -50,7 +50,7 @@
         }
       }
     },
-    "/movies/{id}" : {
+    "/movies/{movieId}" : {
       "get" : {
         "operationId" : "getMovie",
         "parameters" : [ {
