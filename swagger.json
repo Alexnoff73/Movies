@@ -267,7 +267,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Director"
+                "$ref" : "#/components/schemas/Person"
               }
             }
           }
@@ -289,12 +289,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Directors"
+                  "$ref" : "#/components/schemas/Persons"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Directors"
+                  "$ref" : "#/components/schemas/Persons"
                 }
               }
             }
@@ -328,7 +328,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Directors"
+                  "$ref" : "#/components/schemas/Persons"
                 }
               }
             }
@@ -390,7 +390,7 @@
           "$ref" : "#/components/schemas/Mark"
         }
       },
-      "Director" : {
+      "Person" : {
         "type" : "object",
         "required" : [ "title" ],
         "properties" : {
@@ -402,10 +402,10 @@
           }
         }
       },
-      "Directors" : {
+      "Persons" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/Director"
+          "$ref" : "#/components/schemas/Person"
         }
       }
     }
