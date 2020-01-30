@@ -31,6 +31,15 @@
       },
       "get" : {
         "operationId" : "listMovies",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "maximum" : 25
+          },
+          "description" : "The numbers of items to return"
+        } ],
         "responses" : {
           "200" : {
             "description" : "Everything went well",
@@ -118,6 +127,15 @@
       },
       "get" : {
         "operationId" : "listCriticsFromMovie",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "maximum" : 25
+          },
+          "description" : "The numbers of items to return"
+        } ],
         "responses" : {
           "200" : {
             "description" : "the critics",
@@ -205,6 +223,15 @@
       },
       "get" : {
         "operationId" : "listMarksFromMovie",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "maximum" : 25
+          },
+          "description" : "The numbers of items to return"
+        } ],
         "responses" : {
           "200" : {
             "description" : "the marks",
@@ -283,6 +310,15 @@
       },
       "get" : {
         "operationId" : "listDirectors",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "maximum" : 25
+          },
+          "description" : "The numbers of items to return"
+        } ],
         "responses" : {
           "200" : {
             "description" : "Everything went well",
@@ -361,6 +397,15 @@
       },
       "get" : {
         "operationId" : "listActors",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "maximum" : 25
+          },
+          "description" : "The numbers of items to return"
+        } ],
         "responses" : {
           "200" : {
             "description" : "Everything went well",
