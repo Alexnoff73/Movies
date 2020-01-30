@@ -92,7 +92,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movies"
+                  "$ref" : "#/components/schemas/MovieFull"
                 }
               }
             }
@@ -392,7 +392,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Persons"
+                  "$ref" : "#/components/schemas/PersonFull"
                 }
               }
             }
@@ -486,7 +486,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Persons"
+                  "$ref" : "#/components/schemas/PersonFull"
                 }
               }
             }
@@ -509,6 +509,45 @@
           },
           "sign" : {
             "type" : "object"
+          }
+        }
+      },
+      "MovieFull" : {
+        "type" : "object",
+        "required" : [ "title" ],
+        "properties" : {
+          "title" : {
+            "type" : "string"
+          },
+          "pitch" : {
+            "type" : "string"
+          },
+          "sign" : {
+            "type" : "object"
+          },
+          "teaser" : {
+            "type" : "string"
+          },
+          "director" : {
+            "type" : "string"
+          },
+          "actor" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Person"
+            }
+          },
+          "critic" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Critic"
+            }
+          },
+          "mark" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Mark"
+            }
           }
         }
       },
@@ -550,13 +589,40 @@
       },
       "Person" : {
         "type" : "object",
-        "required" : [ "title" ],
+        "required" : [ "name" ],
         "properties" : {
           "name" : {
             "type" : "string"
           },
           "picture" : {
             "type" : "object"
+          }
+        }
+      },
+      "PersonFull" : {
+        "type" : "object",
+        "required" : [ "name" ],
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "picture" : {
+            "type" : "object"
+          },
+          "nationality" : {
+            "type" : "string"
+          },
+          "bio" : {
+            "type" : "string"
+          },
+          "birth" : {
+            "type" : "string"
+          },
+          "movies" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Movie"
+            }
           }
         }
       },
