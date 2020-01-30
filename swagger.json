@@ -169,45 +169,45 @@
             "type" : "string"
           }
         } ]
-      },
-      "/movies/{movieId}/Mark" : {
-        "parameters" : [ {
-          "name" : "movieId",
-          "in" : "path",
+      }
+    },
+    "/movies/{movieId}/Mark" : {
+      "parameters" : [ {
+        "name" : "movieId",
+        "in" : "path",
+        "required" : true,
+        "description" : "movie's Id",
+        "schema" : {
+          "type" : "string"
+        }
+      } ],
+      "post" : {
+        "operationId" : "addMark",
+        "requestBody" : {
+          "description" : "Mark to be added",
           "required" : true,
-          "description" : "movie's Id",
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "post" : {
-          "operationId" : "addMark",
-          "requestBody" : {
-            "description" : "Mark to be added",
-            "required" : true,
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Mark"
-                }
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Mark"
               }
-            }
-          },
-          "responses" : {
-            "201" : {
-              "description" : "Mark Created"
-            },
-            "422" : {
-              "description" : "Problems with your request"
             }
           }
         },
-        "get" : {
-          "operationId" : "listMarksFromMovie",
-          "responses" : {
-            "200" : {
-              "description" : "the marks"
-            },
+        "responses" : {
+          "201" : {
+            "description" : "Mark Created"
+          },
+          "422" : {
+            "description" : "Problems with your request"
+          }
+        }
+      },
+      "get" : {
+        "operationId" : "listMarksFromMovie",
+        "responses" : {
+          "200" : {
+            "description" : "the marks",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -257,6 +257,84 @@
           }
         } ]
       }
+    },
+    "/director" : {
+      "post" : {
+        "operationId" : "addDirector",
+        "requestBody" : {
+          "description" : "Director to be added",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Director"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Director Created"
+          },
+          "422" : {
+            "description" : "Problems with your request"
+          }
+        }
+      },
+      "get" : {
+        "operationId" : "listDirectors",
+        "responses" : {
+          "200" : {
+            "description" : "Everything went well",
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Directors"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Directors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/directors/{directorId}" : {
+      "get" : {
+        "operationId" : "getDirector",
+        "parameters" : [ {
+          "name" : "directorId",
+          "in" : "path",
+          "required" : true,
+          "description" : "id of the director",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "DirectorFilter",
+          "in" : "query",
+          "required" : false,
+          "description" : "Filters of the director",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "the director",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Directors"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -295,6 +373,39 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/Critic"
+        }
+      },
+      "Mark" : {
+        "type" : "object",
+        "required" : [ "content" ],
+        "properties" : {
+          "content" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Marks" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Mark"
+        }
+      },
+      "Director" : {
+        "type" : "object",
+        "required" : [ "title" ],
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "picture" : {
+            "type" : "object"
+          }
+        }
+      },
+      "Directors" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Director"
         }
       }
     }
