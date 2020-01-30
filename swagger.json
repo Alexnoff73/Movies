@@ -133,12 +133,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movies"
+                  "$ref" : "#/components/schemas/Movies/{movieId}/critics/{criticId}"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movies"
+                  "$ref" : "#/components/schemas/Movies/{movieId}/critics/{criticId}"
                 }
               }
             }
@@ -157,6 +157,93 @@
           "in" : "path",
           "required" : true,
           "description" : "id of the critic",
+          "schema" : {
+            "type" : "string"
+          }
+        } ]
+      },
+      "/movies/{movieId}/marks" : {
+        "post" : {
+          "operationId" : "addMark",
+          "requestBody" : {
+            "description" : "Mark to be added",
+            "required" : true,
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Movies/{movieId}/Marks"
+                }
+              }
+            }
+          },
+          "responses" : {
+            "201" : {
+              "description" : "Mark Created"
+            },
+            "422" : {
+              "description" : "Problems with your request"
+            }
+          }
+        },
+        "get" : {
+          "operationId" : "listMarkFromMovie",
+          "parameters" : [ {
+            "name" : "id",
+            "in" : "path",
+            "required" : true,
+            "description" : "movie's marks",
+            "schema" : {
+              "type" : "string"
+            }
+          } ],
+          "responses" : {
+            "200" : {
+              "description" : "the marks",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Movie/Marks"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/{movieId}/marks/{markId}" : {
+      "get" : {
+        "operationId" : "getCriticsFromMovie",
+        "responses" : {
+          "200" : {
+            "description" : "Everything went well",
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Movies/{movieId}/marks/{markId}"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Movies/{movieId}/marks/{markId}"
+                }
+              }
+            }
+          }
+        },
+        "parameters" : [ {
+          "name" : "movieId",
+          "in" : "path",
+          "required" : true,
+          "description" : "id of the movie",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "markId",
+          "in" : "path",
+          "required" : true,
+          "description" : "id of the mark",
           "schema" : {
             "type" : "string"
           }
