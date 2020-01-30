@@ -85,7 +85,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Movies/{movieId}/Critics"
+                "$ref" : "#/components/schemas/Movies/Critics"
               }
             }
           }
@@ -116,7 +116,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movie/{movieId}/Critics"
+                  "$ref" : "#/components/schemas/Movie/Critics"
                 }
               }
             }
@@ -181,9 +181,6 @@
           },
           "teaser" : {
             "type" : "array"
-          },
-          "director" : {
-            "type" : "string"
           },
           "actor" : {
             "type" : "array"
