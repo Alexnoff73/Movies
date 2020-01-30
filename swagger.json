@@ -68,7 +68,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Movie"
+                  "$ref" : "#/components/schemas/Movie/{movieID}"
                 }
               }
             }
@@ -85,7 +85,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Movies/Critics"
+                "$ref" : "#/components/schemas/Movies/Critics/{movieId}"
               }
             }
           }
